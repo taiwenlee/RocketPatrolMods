@@ -89,7 +89,8 @@ class Play extends Phaser.Scene {
          this.gameOver = true;
          if(this.p1Score > highscore){
             highscore = this.p1Score;
-         } else if(this.p2Score > highscore){
+         }
+         if(this.p2Score > highscore){
             highscore = this.p2Score;
          }
          this.highscoreText.setText('Highscore: ' + highscore);
