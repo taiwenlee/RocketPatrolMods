@@ -1,7 +1,7 @@
 // Tai Wen Lee
 // Rocket Patrol Mods
 // 4/13/2022
-// took ~2 hours
+// took ~2-3 hours (including testing and small breaks)
 //
 // Point break Down:
 // Implement a simultaneous two-player mode (30) 40 min
