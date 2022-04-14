@@ -1,14 +1,14 @@
 // Tai Wen Lee
 // Rocket Patrol Mods
 // 4/13/2022
-// took _ hours
+// took ~2 hours
 //
 // Point break Down:
 // Implement a simultaneous two-player mode (30) 40 min
 // Implement a new timing/scoring mechanism that adds time to the clock for successful hits (20) 10 min
-// Display the time remaining (in seconds) on the screen (10) 5 min
 // Use Phaser's particle emitter to create a particle explosion when the rocket hits the spaceship (20) 20 min
 // Implement parallax scrolling (10) 20 min
+// Display the time remaining (in seconds) on the screen (10) 5 min
 // Allow the player to control the Rocket after it's fired (5) 1 min
 // Track a high score that persists across scenes and display it in the UI (5) 6 min
 
