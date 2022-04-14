@@ -8,7 +8,9 @@ class Play extends Phaser.Scene {
       this.load.image('rocket1', './assets/rocket1.png');
       this.load.image('rocket2', './assets/rocket2.png');
       this.load.image('spaceship', './assets/spaceship.png');
-      this.load.image('starfield', './assets/starfield.png');
+      this.load.image('starfield0', './assets/starfield0.png');
+      this.load.image('starfield1', './assets/starfield1.png');
+      this.load.image('starfield2', './assets/starfield2.png');
       this.load.image('particle', './assets/particle.png');
 
       // load spritesheet
@@ -27,7 +29,9 @@ class Play extends Phaser.Scene {
       keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 
       // place tile sprite
-      this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
+      this.starfield0 = this.add.tileSprite(0, 0, 640, 480, 'starfield0').setOrigin(0, 0);
+      this.starfield1 = this.add.tileSprite(0, 0, 640, 480, 'starfield1').setOrigin(0, 0);
+      this.starfield2 = this.add.tileSprite(0, 0, 640, 480, 'starfield2').setOrigin(0, 0);
 
       // green UI background
       this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
@@ -83,10 +87,16 @@ class Play extends Phaser.Scene {
          this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
          this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu', scoreConfig).setOrigin(0.5);
          this.gameOver = true;
+         if(this.p1Score > highscore){
+            highscore = this.p1Score;
+         } else if(this.p2Score > highscore){
+            highscore = this.p2Score;
+         }
+         this.highscoreText.setText('Highscore: ' + highscore);
       }, null, this);
 
-      this.clockText = this.add.text(game.config.width/2, borderUISize + borderPadding * 2, this.clock.delay - this.clock.elapsed, scoreConfig).setOrigin(0.5, 0);
-      console.log(this.clock);
+      this.clockText = this.add.text(game.config.width/2 - borderUISize * 3 - borderPadding * 2, borderUISize + borderPadding * 2, this.clock.delay - this.clock.elapsed, scoreConfig).setOrigin(0.5, 0);
+      this.highscoreText = this.add.text(game.config.width/2 + borderUISize + borderPadding, borderUISize + borderPadding * 2, 'Highscore: ' + highscore, scoreConfig).setOrigin(0.5, 0);
    }
 
    update() {
@@ -100,7 +110,9 @@ class Play extends Phaser.Scene {
       }
 
       // moves starfield to the left
-      this.starfield.tilePositionX -= 4;
+      this.starfield0.tilePositionX -= 2;
+      this.starfield1.tilePositionX -= 3;
+      this.starfield2.tilePositionX -= 4;
 
       if (!this.gameOver) {               
          this.p1Rocket.update();         // update rocket sprite
@@ -190,7 +202,6 @@ class Play extends Phaser.Scene {
          this.scoreRight.text = this.p2Score;
       }
       this.clock.delay += 10000;
-      console.log(this.clock);
 
       // play sound
       this.sound.play('sfx_explosion', {volume: 0.5});
