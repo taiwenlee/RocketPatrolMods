@@ -201,7 +201,7 @@ class Play extends Phaser.Scene {
          this.p2Score += ship.points;
          this.scoreRight.text = this.p2Score;
       }
-      this.clock.delay += 10000;
+      this.clock.delay += 5000;
 
       // play sound
       this.sound.play('sfx_explosion', {volume: 0.5});
