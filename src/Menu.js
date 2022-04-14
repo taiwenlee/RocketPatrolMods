@@ -28,10 +28,11 @@ class Menu extends Phaser.Scene {
 
       // show menu text
       this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-      this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
+      this.add.text(game.config.width/2, game.config.height/2, '1: Use ←→ arrows to move & ↑ to fire', menuConfig).setOrigin(0.5);
+      this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, '2: Use (a)(d) to move & w to fire', menuConfig).setOrigin(0.5);
       menuConfig.backgroundColor = '#00FF00';
       menuConfig.color = '#000';
-      this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
+      this.add.text(game.config.width/2, game.config.height/2 + borderUISize * 2 + borderPadding * 2, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
       
       // define keys
       keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -43,18 +44,18 @@ class Menu extends Phaser.Scene {
          // easy mode
          game.settings = {
             spaceshipSpeed: 3,
-            gameTimer: 10000
+            gameTimer: 30000
          }
-         this.sound.play("sfx_select");
+         this.sound.play("sfx_select", {volume: 0.5});
          this.scene.start("playScene");
       }
       if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
          // hard mode
          game.settings = {
             spaceshipSpeed: 4,
-            gameTimer: 30000
+            gameTimer: 10000
          }
-         this.sound.play("sfx_select");
+         this.sound.play("sfx_select", {volume: 0.5});
          this.scene.start("playScene");
       }
    }

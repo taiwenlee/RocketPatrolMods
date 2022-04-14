@@ -4,8 +4,10 @@
 // took _ hours
 //
 // Point break Down:
-// Implement a simultaneous two-player mode (30) 30 min
+// Implement a simultaneous two-player mode (30) 40 min
 // Implement a new timing/scoring mechanism that adds time to the clock for successful hits (20) 10 min
+// Display the time remaining (in seconds) on the screen (10) 5 min
+// Use Phaser's particle emitter to create a particle explosion when the rocket hits the spaceship (20) 20 min
 
 let config = {
    type: Phaser.CANVAS,

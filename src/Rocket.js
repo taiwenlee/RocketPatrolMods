@@ -1,12 +1,12 @@
 // Rocket prefab
 class Rocket extends Phaser.GameObjects.Sprite {
-   constructor(sccene, x, y, texture, frame, leftKey, rightKey, fireKey) {
-      super(sccene, x, y, texture, frame);
+   constructor(scene, x, y, texture, frame, leftKey, rightKey, fireKey) {
+      super(scene, x, y, texture, frame);
 
-      sccene.add.existing(this);    // add object to existing scene
+      scene.add.existing(this);    // add object to existing scene
       this.isFiring = false;        // track rocket's firing status
       this.moveSpeed = 2;           // pixels per frame
-      this.sfxRocket = sccene.sound.add("sfx_rocket"); // load rocket sound effect
+      this.sfxRocket = scene.sound.add("sfx_rocket", {volume: 0.3}); // load rocket sound effect
       this.leftKey = leftKey;
       this.rightKey = rightKey;
       this.fireKey =  fireKey;
