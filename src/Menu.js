@@ -31,7 +31,7 @@ class Menu extends Phaser.Scene {
       this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Highscore: ' + highscore, menuConfig).setOrigin(0.5);
       this.add.text(game.config.width/2, game.config.height/2, '1: Use ←→ arrows to move & ↑ to fire', menuConfig).setOrigin(0.5);
       this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, '2: Use (a)(d) to move & (w) to fire', menuConfig).setOrigin(0.5);
-      menuConfig.backgroundColor = '#00FF00';
+      menuConfig.backgroundColor = '#FF0000';
       menuConfig.color = '#000';
       this.add.text(game.config.width/2, game.config.height/2 + borderUISize * 2 + borderPadding * 2, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
       
